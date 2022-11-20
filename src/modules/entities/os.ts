@@ -1,4 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm"
+import Car from "./car";
+import Client from "./client";
+import Part from "./part";
+import Task from "./task";
 
 @Entity()
 export default class Os {
@@ -15,5 +19,16 @@ export default class Os {
     @Column()
     public OSCode!: string;
 
+    @ManyToOne(() => Client, (client) => client.OsList)
+    public client!: Client;
+
+    @ManyToOne(() => Car, (car) => car.listOs)
+    public car!: Car;
+
+    @OneToMany(() => Part, (part) => part.os)
+    public listParts!: Array<Part>;
+
+    @OneToMany(() => Task, (task) => task.os)
+    public listTasks!: Array<Task>;
 
 }

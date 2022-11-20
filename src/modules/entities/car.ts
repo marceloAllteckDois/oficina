@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm"
-import Part from "./part";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinTable, ManyToMany } from "typeorm"
+import Client from "./client";
+import Os from "./os";
 
 @Entity()
 export default class Car {
@@ -14,13 +15,20 @@ export default class Car {
     public brand!: string;
 
     @Column()
+    public color!: string;
+
+    @Column()
     public name!: string;
 
     @Column()
     public plate!: string;
 
-    @OneToMany(() => Part, (part) => part.car)
-    public listPats!: Array<Part>;
+    @ManyToMany(() => Client)
+    @JoinTable()
+    public listClients!: Array<Client>;
+
+    @OneToMany(() => Os, (os) => os.car)
+    public listOs!: Array<Os>;
 
 
 }
