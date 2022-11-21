@@ -1,0 +1,35 @@
+import { checkServerIdentity } from "tls";
+import { ObjectLiteral, Repository } from "typeorm";
+import { resourceLimits } from "worker_threads";
+import IEntity from "../entities/IEntity";
+import { IReposytory } from "./IRepository";
+
+export default abstract class GenericRepository<T extends IEntity> implements IReposytory<T> {
+
+    private repository: Repository<T>
+
+    constructor(repository: Repository<T>) {
+        this.repository = repository;
+    }
+
+    async save(object: T) {
+        await this.repository.save(object);
+    }
+    async update(object: T) {
+        await this.repository.delete(object.id);
+        await this.repository.save(object);
+    }
+    async findAll(): Promise<Array<T>> {
+        return await this.repository.find();
+    }
+    async findById(object: T): Promise<T> {
+        throw new Error("Method not implemented.");
+    }
+    async find(objectQuery: T): Promise<Array<T>> {
+        throw new Error("Method not implemented.");
+    }
+    async delete(object: T) {
+        await this.repository.delete(object.id);
+    }
+
+}

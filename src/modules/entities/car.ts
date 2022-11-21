@@ -1,9 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinTable, ManyToMany } from "typeorm"
 import Client from "./client";
+import IEntity from "./IEntity";
 import Os from "./os";
 
 @Entity()
-export default class Car {
+export default class Car implements IEntity {
 
     @PrimaryGeneratedColumn()
     public id!: number;

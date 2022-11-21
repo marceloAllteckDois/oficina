@@ -1,8 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm"
+import IEntity from "./IEntity";
 import Os from "./os";
 
 @Entity()
-export default class Part {
+export default class Part implements IEntity {
 
     @PrimaryGeneratedColumn()
     public id!: number;

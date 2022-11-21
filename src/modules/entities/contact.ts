@@ -1,9 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
 import Client from "./client";
 import Employe from "./employe";
+import IEntity from "./IEntity";
 
 @Entity()
-export default class Contact {
+export default class Contact implements IEntity {
     @PrimaryGeneratedColumn()
     public id!: number;
 

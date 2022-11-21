@@ -4,9 +4,10 @@ import Car from "./car";
 import Os from "./os";
 import Document from "./document";
 import Contact from "./contact";
+import IEntity from "./IEntity";
 
 @Entity()
-export default class Client {
+export default class Client implements IEntity {
 
     @PrimaryGeneratedColumn()
     public id!: number;

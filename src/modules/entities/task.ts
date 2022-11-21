@@ -1,9 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, JoinTable, OneToOne, JoinColumn, ManyToOne } from "typeorm"
 import Employe from "./employe";
+import IEntity from "./IEntity";
 import Os from "./os";
 
 @Entity()
-export default class Task {
+export default class Task implements IEntity {
     @PrimaryGeneratedColumn()
     public id!: number;
 

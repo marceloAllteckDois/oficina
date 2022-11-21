@@ -2,9 +2,10 @@ import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn
 import Addres from "./addres";
 import Contact from "./contact";
 import Document from "./document";
+import IEntity from "./IEntity";
 
 @Entity()
-export default class Employe {
+export default class Employe implements IEntity {
 
     @PrimaryGeneratedColumn()
     public id!: number;

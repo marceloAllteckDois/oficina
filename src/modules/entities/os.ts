@@ -1,11 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm"
 import Car from "./car";
 import Client from "./client";
+import IEntity from "./IEntity";
 import Part from "./part";
 import Task from "./task";
 
 @Entity()
-export default class Os {
+export default class Os implements IEntity {
 
     @PrimaryGeneratedColumn()
     public id!: number;
