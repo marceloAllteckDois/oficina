@@ -8,6 +8,9 @@ import Task from "./task";
 @Entity()
 export default class Os implements IEntity {
 
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 

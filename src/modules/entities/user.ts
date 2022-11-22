@@ -4,6 +4,9 @@ import IEntity from "./IEntity";
 @Entity()
 export default class User implements IEntity {
 
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 

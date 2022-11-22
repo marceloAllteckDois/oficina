@@ -5,6 +5,10 @@ import IEntity from "./IEntity";
 
 @Entity()
 export default class Contact implements IEntity {
+
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 

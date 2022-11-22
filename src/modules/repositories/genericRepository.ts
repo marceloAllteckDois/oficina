@@ -6,7 +6,7 @@ import { IReposytory } from "./IRepository";
 
 export default abstract class GenericRepository<T extends IEntity> implements IReposytory<T> {
 
-    private repository: Repository<T>
+    protected repository: Repository<T>
 
     constructor(repository: Repository<T>) {
         this.repository = repository;
@@ -22,7 +22,7 @@ export default abstract class GenericRepository<T extends IEntity> implements IR
     async findAll(): Promise<Array<T>> {
         return await this.repository.find();
     }
-    async findById(object: T): Promise<T> {
+    async findById(object: T): Promise<T | null> {
         throw new Error("Method not implemented.");
     }
     async find(objectQuery: T): Promise<Array<T>> {

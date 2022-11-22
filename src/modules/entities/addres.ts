@@ -4,6 +4,8 @@ import IEntity from "./IEntity";
 
 @Entity()
 export default class Addres implements IEntity {
+    @Column()
+    public status!: boolean;
 
     @PrimaryGeneratedColumn()
     public id!: number;

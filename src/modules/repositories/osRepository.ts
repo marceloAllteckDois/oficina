@@ -6,4 +6,11 @@ export default class OsRepository extends GenericRepository<Os>{
         super(dataSource.getRepository(Os));
     }
 
+    async findById(object: Os): Promise<Os | null> {
+        return await this.repository.findOne({ where: [{ id: object.id }] });
+    }
+
+    async find(objectQuery: Os): Promise<Array<Os>> {
+        throw new Error("Method not implemented.");
+    }
 }

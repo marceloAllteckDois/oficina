@@ -6,6 +6,9 @@ import Os from "./os";
 @Entity()
 export default class Car implements IEntity {
 
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 

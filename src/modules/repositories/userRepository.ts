@@ -6,4 +6,11 @@ export default class UserRepository extends GenericRepository<User>{
         super(dataSource.getRepository(User));
     }
 
+    async findById(object: User): Promise<User | null> {
+        return await this.repository.findOne({ where: [{ id: object.id }] });
+    }
+
+    async find(objectQuery: User): Promise<Array<User>> {
+        throw new Error("Method not implemented.");
+    }
 }

@@ -5,6 +5,10 @@ import Os from "./os";
 
 @Entity()
 export default class Task implements IEntity {
+
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 

@@ -5,6 +5,9 @@ import Os from "./os";
 @Entity()
 export default class Part implements IEntity {
 
+    @Column()
+    public status!: boolean;
+
     @PrimaryGeneratedColumn()
     public id!: number;
 
