@@ -6,24 +6,31 @@ export default class AddresService implements IService<Addres> {
 
     private addresRepository: AddresRepository = new AddresRepository();
     private promiseReturn!: Promise<any | null>;
+    private returnPromissed!: any;
 
     save(object: Addres): void {
         this.addresRepository.save(object);
     }
     update(object: Addres): void {
-        throw new Error("Method not implemented.");
+        this.addresRepository.update(object);
     }
     findAll(): Addres[] {
-        throw new Error("Method not implemented.");
+        this.promiseReturn = this.addresRepository.findAll();
+        this.promiseReturn.then(value => {this.returnPromissed = value}).catch(value => {this.returnPromissed = new Array<Addres>()});
+        return this.returnPromissed;
     }
     findById(object: Addres): Addres {
-        throw new Error("Method not implemented.");
+        this.promiseReturn = this.addresRepository.findById(object);
+        this.promiseReturn.then(value => {this.returnPromissed = value}).catch(value => {this.returnPromissed = new Array<Addres>()});
+        return this.returnPromissed;
     }
     find(objectQuery: Addres): Addres[] {
-        throw new Error("Method not implemented.");
+        this.promiseReturn = this.addresRepository.find(objectQuery);
+        this.promiseReturn.then(value => {this.returnPromissed = value}).catch(value => {this.returnPromissed = new Array<Addres>()});
+        return this.returnPromissed;
     }
     delete(object: Addres): void {
-        throw new Error("Method not implemented.");
+        this.addresRepository.delete(object);
     }
 
 }
