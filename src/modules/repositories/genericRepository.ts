@@ -1,6 +1,4 @@
-import { checkServerIdentity } from "tls";
-import { ObjectLiteral, Repository } from "typeorm";
-import { resourceLimits } from "worker_threads";
+import { Repository } from "typeorm";
 import IEntity from "../entities/IEntity";
 import { IReposytory } from "./IRepository";
 
