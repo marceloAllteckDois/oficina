@@ -6,6 +6,8 @@ import Os from "./os";
 @Entity()
 export default class Task implements IEntity {
 
+    public className: string = 'task';
+
     @Column()
     public status!: boolean;
 

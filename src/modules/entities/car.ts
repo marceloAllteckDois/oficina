@@ -6,6 +6,8 @@ import Os from "./os";
 @Entity()
 export default class Car implements IEntity {
 
+    public className: string = 'car';
+
     @Column()
     public status!: boolean;
 

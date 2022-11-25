@@ -9,6 +9,8 @@ import IEntity from "./IEntity";
 @Entity()
 export default class Client implements IEntity {
 
+    public className: string = 'client';
+
     @Column()
     public status!: boolean;
 

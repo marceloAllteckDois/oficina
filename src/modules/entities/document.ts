@@ -6,6 +6,8 @@ import IEntity from "./IEntity";
 Entity()
 export default class Document implements IEntity {
 
+    public className: string = 'document';
+
     @Column()
     public status!: boolean;
 

@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { DeleteResult, Repository } from "typeorm";
 import IEntity from "../entities/IEntity";
 import { IReposytory } from "./IRepository";
 
@@ -10,12 +10,12 @@ export default abstract class GenericRepository<T extends IEntity> implements IR
         this.repository = repository;
     }
 
-    async save(object: T) {
-        await this.repository.save(object);
+    async save(object: T): Promise<T | null> {
+        return await this.repository.save(object);
     }
-    async update(object: T) {
+    async update(object: T): Promise<T | null> {
         await this.repository.delete(object.id);
-        await this.repository.save(object);
+        return await this.repository.save(object);
     }
     async findAll(): Promise<Array<T>> {
         return await this.repository.find();
@@ -26,8 +26,8 @@ export default abstract class GenericRepository<T extends IEntity> implements IR
     async find(objectQuery: T): Promise<Array<T>> {
         throw new Error("Method not implemented.");
     }
-    async delete(object: T) {
-        await this.repository.delete(object.id);
+    async delete(object: T): Promise<DeleteResult | null> {
+        return await this.repository.delete(object.id);
     }
 
 }

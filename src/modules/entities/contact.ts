@@ -6,6 +6,8 @@ import IEntity from "./IEntity";
 @Entity()
 export default class Contact implements IEntity {
 
+    public className: string = 'contact';
+
     @Column()
     public status!: boolean;
 

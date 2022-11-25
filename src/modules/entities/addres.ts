@@ -4,6 +4,9 @@ import IEntity from "./IEntity";
 
 @Entity()
 export default class Addres implements IEntity {
+
+    public className: string = 'address';
+
     @Column()
     public status!: boolean;
 

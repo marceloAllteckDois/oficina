@@ -7,6 +7,8 @@ import IEntity from "./IEntity";
 @Entity()
 export default class Employe implements IEntity {
 
+    public className: string = 'employe';
+
     @Column()
     public status!: boolean;
 
