@@ -17,7 +17,7 @@ export default abstract class GenericService<T> implements IService<T> {
         this.promiseReturn.then(value => {this.returnPromissed = value}).catch(value => {this.returnPromissed = null});
         return this.returnPromissed;
     }
-    update(object: T): void {
+    update(object: T): T {
         this.promiseReturn = this.genericRepository.update(object);
         this.promiseReturn.then(value => {this.returnPromissed = value}).catch(value => {this.returnPromissed = null});
         return this.returnPromissed;
